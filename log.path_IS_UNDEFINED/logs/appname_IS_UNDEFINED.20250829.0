@@ -1,0 +1,231 @@
+2025-08-29 16:29:01 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/admin/categoryInfo/loadCategoryInfo", parameters={multipart}
+2025-08-29 16:29:01 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.admin.controller.CategoryInfoController#loadCategoryInfo(CategoryInfoQuery)
+2025-08-29 16:29:01 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:01 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2722b76] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:01 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:01 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@1496103179 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:01 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==>  Preparing: SELECT c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time FROM category_info c order by sort asc 
+2025-08-29 16:29:01 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==> Parameters: 
+2025-08-29 16:29:01 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> <==      Total: 15
+2025-08-29 16:29:01 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2722b76]
+2025-08-29 16:29:01 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:01 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@59bfcb89]
+2025-08-29 16:29:01 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/bg/tech.jpg", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/icons/life.png", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/icons/tech.png", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/bg/life.jpg", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/bg/tech.jpg", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/icons/tech.png", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/icons/life.png", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:02 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:02 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/bg/life.jpg", parameters={masked}
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:02 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:02 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:02 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/bg/entertainment.jpg", parameters={masked}
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/bg/entertainment.jpg", parameters={masked}
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> GET "/admin/file/getImage?sourceName=/icons/entertainment.png", parameters={masked}
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:03 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for GET "/admin/error?sourceName=/icons/entertainment.png", parameters={masked}
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:29:03 CST 2025, status=404, error=Not Found, path=/admin/file/getImage}]
+2025-08-29 16:29:03 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/admin/categoryInfo/saveCategoryInfo", parameters={multipart}
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.admin.controller.CategoryInfoController#saveCategoryInfo(Integer, Integer, String, String, String, String)
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11ec15ff] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:27 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@265434225 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> ==>  Preparing: select c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time from category_info c where category_code=? 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> ==> Parameters: car(String)
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> <==      Total: 0
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@11ec15ff]
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c555f97] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:27 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@283487931 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> ==>  Preparing: select ifnull(max(sort),0) from category_info c where p_category_id = ? 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> ==> Parameters: 0(Integer)
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> <==      Total: 1
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7c555f97]
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@706e250b] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:27 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@638674294 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> ==>  Preparing: INSERT INTO category_info ( category_code, category_name, p_category_id, sort ) values ( ?, ?, ?, ? ) 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> ==> Parameters: car(String), 汽车(String), 0(Integer), 4(Integer)
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> <==    Updates: 1
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> ==>  Preparing: SELECT LAST_INSERT_ID() 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> ==> Parameters: 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> <==      Total: 1
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@706e250b]
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e60a25] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:27 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@82960570 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==>  Preparing: SELECT c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time FROM category_info c order by sort asc 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==> Parameters: 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> <==      Total: 16
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@29e60a25]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@5aab2838]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/admin/categoryInfo/loadCategoryInfo", parameters={multipart}
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.admin.controller.CategoryInfoController#loadCategoryInfo(CategoryInfoQuery)
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d74d23d] was not registered for synchronization because synchronization is not active
+2025-08-29 16:29:27 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@102140094 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==>  Preparing: SELECT c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time FROM category_info c order by sort asc 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==> Parameters: 
+2025-08-29 16:29:27 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> <==      Total: 16
+2025-08-29 16:29:27 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d74d23d]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@649d0cc5]
+2025-08-29 16:29:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/admin/categoryInfo/saveCategoryInfo", parameters={multipart}
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.admin.controller.CategoryInfoController#saveCategoryInfo(Integer, Integer, String, String, String, String)
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79a31595] was not registered for synchronization because synchronization is not active
+2025-08-29 16:30:29 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@1671040649 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> ==>  Preparing: select c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time from category_info c where category_code=? 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> ==> Parameters: tram(String)
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectByCategoryCode][debug][159]-> <==      Total: 0
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79a31595]
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f82fec] was not registered for synchronization because synchronization is not active
+2025-08-29 16:30:29 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@841805095 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> ==>  Preparing: select ifnull(max(sort),0) from category_info c where p_category_id = ? 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> ==> Parameters: 16(Integer)
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectMaxSort][debug][159]-> <==      Total: 1
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f82fec]
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57bd78b4] was not registered for synchronization because synchronization is not active
+2025-08-29 16:30:29 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@360229600 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> ==>  Preparing: INSERT INTO category_info ( category_code, category_name, p_category_id, sort ) values ( ?, ?, ?, ? ) 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> ==> Parameters: tram(String), 新能源汽车(String), 16(Integer), 1(Integer)
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert][debug][159]-> <==    Updates: 1
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> ==>  Preparing: SELECT LAST_INSERT_ID() 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> ==> Parameters: 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.insert!selectKey][debug][159]-> <==      Total: 1
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@57bd78b4]
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@774b5e3b] was not registered for synchronization because synchronization is not active
+2025-08-29 16:30:29 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@657773976 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==>  Preparing: SELECT c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time FROM category_info c order by sort asc 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==> Parameters: 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> <==      Total: 17
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@774b5e3b]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@121ad9a1]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/admin/categoryInfo/loadCategoryInfo", parameters={multipart}
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.admin.controller.CategoryInfoController#loadCategoryInfo(CategoryInfoQuery)
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][getSqlSession][97]-> Creating a new SqlSession
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][registerSessionHolder][148]-> SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23e55f4e] was not registered for synchronization because synchronization is not active
+2025-08-29 16:30:29 [DEBUG][org.springframework.jdbc.datasource.DataSourceUtils][doGetConnection][117]-> Fetching JDBC Connection from DataSource
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.transaction.SpringManagedTransaction][openConnection][87]-> JDBC Connection [HikariProxyConnection@77671224 wrapping com.mysql.cj.jdbc.ConnectionImpl@690429ba] will not be managed by Spring
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==>  Preparing: SELECT c.category_id,c.category_code,c.category_name,c.p_category_id,c.icon, c.background,c.sort,c.create_time,c.update_time FROM category_info c order by sort asc 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> ==> Parameters: 
+2025-08-29 16:30:29 [DEBUG][com.easylive.mappers.CategoryInfoMapper.selectList][debug][159]-> <==      Total: 17
+2025-08-29 16:30:29 [DEBUG][org.mybatis.spring.SqlSessionUtils][closeSqlSession][191]-> Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23e55f4e]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@418202f1]
+2025-08-29 16:30:29 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:35:22 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/web/video/getHotWordTop", parameters={multipart}
+2025-08-29 16:35:22 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/web/video/loadCommendVideo", parameters={multipart}
+2025-08-29 16:35:22 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/web/sysSetting/getSysSetting", parameters={multipart}
+2025-08-29 16:35:22 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/web/categoryInfo/loadAllCategoryInfo", parameters={multipart}
+2025-08-29 16:35:22 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> POST "/web/account/autoLogin", parameters={multipart}
+2025-08-29 16:35:26 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to com.easylive.web.controller.AccountController#autoLogin(HttpServletResponse)
+2025-08-29 16:35:26 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:35:26 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:35:26 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:35:26 [DEBUG][org.springframework.web.servlet.handler.SimpleUrlHandlerMapping][getHandler][522]-> Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.resource.ResourceHttpRequestHandler][handleRequest][560]-> Resource not found
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:35:27 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 404 NOT_FOUND
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for POST "/web/error", parameters={multipart}
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for POST "/web/error", parameters={multipart}
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for POST "/web/error", parameters={multipart}
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.DispatcherServlet][traceDebug][120]-> "ERROR" dispatch for POST "/web/error", parameters={multipart}
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:35:28 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping][getHandler][522]-> Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:35:28 CST 2025, status=404, error=Not Found, path=/web/categoryInfo/loadAll (truncated)...]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:35:28 CST 2025, status=404, error=Not Found, path=/web/video/loadCommendVid (truncated)...]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:35:28 CST 2025, status=404, error=Not Found, path=/web/video/getHotWordTop}]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.HttpEntityMethodProcessor][traceDebug][120]-> Writing [{timestamp=Fri Aug 29 16:35:28 CST 2025, status=404, error=Not Found, path=/web/sysSetting/getSysSet (truncated)...]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][writeWithMessageConverters][268]-> Using 'application/json', given [application/json, text/plain, */*] and supported [application/json, application/*+json, application/json, application/*+json, application/x-jackson-smile, application/cbor]
+2025-08-29 16:35:29 [DEBUG][org.springframework.web.servlet.mvc.method.annotation.RequestResponseBodyMethodProcessor][traceDebug][120]-> Writing [com.easylive.entity.vo.ResponseVO@25632b7]
+2025-08-29 16:35:30 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:35:30 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1131]-> Completed 200 OK
+2025-08-29 16:35:30 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:35:30 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 16:35:30 [DEBUG][org.springframework.web.servlet.DispatcherServlet][logResult][1127]-> Exiting from "ERROR" dispatch, status 404
+2025-08-29 17:20:35 [DEBUG][org.springframework.boot.availability.ApplicationAvailabilityBean][onApplicationEvent][77]-> Application availability state ReadinessState changed from ACCEPTING_TRAFFIC to REFUSING_TRAFFIC
+2025-08-29 17:20:35 [DEBUG][org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext][doClose][1060]-> Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@1d7f7be7, started on Fri Aug 29 15:58:25 CST 2025
+2025-08-29 17:20:35 [DEBUG][org.springframework.boot.context.properties.source.ConfigurationPropertySourcesPropertyResolver$DefaultResolver][logKeyFound][115]-> Found key 'spring.liveBeansView.mbeanDomain' in PropertySource 'systemProperties' with value of type String
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][stop][366]-> Stopping beans in phase 2147483647
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][lambda$doStop$3][239]-> Bean 'container' completed its stop procedure
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][lambda$doStop$3][239]-> Bean 'webServerGracefulShutdown' completed its stop procedure
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][stop][366]-> Stopping beans in phase 2147483646
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][lambda$doStop$3][239]-> Bean 'webServerStartStop' completed its stop procedure
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][stop][366]-> Stopping beans in phase -2147483647
+2025-08-29 17:20:35 [DEBUG][org.springframework.context.support.DefaultLifecycleProcessor][lambda$doStop$3][239]-> Bean 'springBootLoggingLifecycle' completed its stop procedure
+2025-08-29 17:20:35 [DEBUG][org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager][shutdown][232]-> Connection manager is shutting down
+2025-08-29 17:20:35 [DEBUG][org.apache.http.impl.nio.conn.PoolingNHttpClientConnectionManager][shutdown][234]-> Connection manager shut down
+2025-08-29 17:20:35 [DEBUG][org.springframework.jmx.export.annotation.AnnotationMBeanExporter][destroy][452]-> Unregistering JMX-exposed beans on shutdown
+2025-08-29 17:20:35 [DEBUG][org.springframework.jmx.export.annotation.AnnotationMBeanExporter][unregisterBeans][186]-> Unregistering JMX-exposed beans
+2025-08-29 17:20:35 [DEBUG][org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor][shutdown][224]-> Shutting down ExecutorService 'applicationTaskExecutor'
+2025-08-29 17:20:35 [INFO][com.zaxxer.hikari.HikariDataSource][close][350]-> HikariCPDatasource - Shutdown initiated...
+2025-08-29 17:20:35 [INFO][com.zaxxer.hikari.HikariDataSource][close][352]-> HikariCPDatasource - Shutdown completed.
