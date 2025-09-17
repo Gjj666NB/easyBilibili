@@ -146,7 +146,7 @@ public class VideoCommentController extends ABaseController{
     }
 
     @RequestMapping("deleteComment")
-    @Transactional(rollbackFor = Exception.class)
+    @GlobalInterceptor(checkLogin = true)
     public ResponseVO userDelComment(@NotNull Integer commentId){
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfo();
         videoCommentService.delComment(commentId, tokenUserInfoDto.getUserId());

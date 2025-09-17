@@ -29,6 +29,7 @@ import com.easylive.entity.query.SimplePage;
 import com.easylive.mappers.VideoCommentMapper;
 import com.easylive.service.VideoCommentService;
 import com.easylive.utils.StringTools;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 
@@ -238,25 +239,21 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 	}
 
 	@Override
+	@Transactional(rollbackFor = Exception.class)
 	public void delComment(Integer commentId, String userId) {
-		//校验
 		VideoComment videoComment = videoCommentMapper.selectByCommentId(commentId);
-		//评论是否存在
-		if (videoComment == null){
+		if (videoComment == null) {
 			throw new BusinessException(ResponseEnum.CODE_600);
 		}
-
-		//视频是否存在 是否是作者操作
-		UserInfo userInfo = userInfoMapper.selectByUserId(userId);
-		if (userInfo == null){
+		VideoInfo videoInfo = videoInfoMapper.selectByVideoId(videoComment.getVideoId());
+		if (videoInfo == null) {
 			throw new BusinessException(ResponseEnum.CODE_600);
 		}
-
-		if (userInfo != null && userInfo.getUserId().equals(userId) && videoComment.getUserId().equals(userId)){
+		if (userId != null && !videoInfo.getUserId().equals(userId) && !videoComment.getUserId().equals(userId)) {
 			throw new BusinessException(ResponseEnum.CODE_600);
 		}
-
 		videoCommentMapper.deleteByCommentId(commentId);
+
 
 		//如果删除父评论 同时把子评论也删除 并且更改评论数量
 		if (videoComment.getpCommentId() == 0){
