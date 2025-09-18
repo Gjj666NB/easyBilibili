@@ -45,7 +45,6 @@ public class AccountController  extends ABaseController{
         String checkCodeKey = redisComponent.saveCheckCode(code);
         // 将图片验证码base64返回前端
         String Checkbase64 = captcha.toBase64();
-
         HashMap<String, String> map = new HashMap<>();
         map.put("checkCode", Checkbase64);
         map.put("checkCodeKey", checkCodeKey);
@@ -118,7 +117,6 @@ public class AccountController  extends ABaseController{
         return getSuccessResponseVO(tokenUserInfoDto);
     }
 
-    //http://localhost:7071/account/logout
     @RequestMapping("/loginOut")
     public ResponseVO logout(HttpServletResponse response){
         cleanCookie(response);

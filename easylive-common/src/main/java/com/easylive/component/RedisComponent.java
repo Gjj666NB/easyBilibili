@@ -12,6 +12,7 @@ import com.easylive.redis.RedisUtils;
 import com.easylive.utils.DateUtil;
 import com.easylive.utils.StringTools;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.Email;
@@ -140,5 +141,25 @@ public class RedisComponent {
     //清空删除队列
     public void cleanDelQueue(String videoId) {
         redisUtils.delete(Constants.REDIS_KEY_FILE_DEL + videoId);
+    }
+
+    public Integer  VideoPlayOnline(@NotEmpty String fileId, @NotEmpty String deviceId) {
+
+        String userPlayOnlineKey = String.format(Constants.REDIS_KEY_VIDEO_PLAY_COUNT_USER, fileId, deviceId);
+        String playOnlineCountKey = String.format(Constants.REDIS_KEY_VIDEO_PLAY_COUNT_ONLINE, fileId);
+
+        // 当前用户首次打开该文件
+        if (!redisUtils.keyExists(userPlayOnlineKey)) {
+            redisUtils.setex(userPlayOnlineKey, fileId, Constants.REDIS_KEY_EXPIRE_ONE_SECOND * 8);
+            return redisUtils.incrementex(playOnlineCountKey, Constants.REDIS_KEY_EXPIRE_ONE_SECOND * 10).intValue();
+        }
+
+        // 续期
+        redisUtils.expire(playOnlineCountKey, Constants.REDIS_KEY_EXPIRE_ONE_SECOND * 10);
+        redisUtils.expire(userPlayOnlineKey, Constants.REDIS_KEY_EXPIRE_ONE_SECOND * 8);
+        Integer count = (Integer) redisUtils.get(playOnlineCountKey);
+
+        return count == null ? 1 : count;
+
     }
 }
