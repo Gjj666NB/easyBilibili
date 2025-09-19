@@ -162,4 +162,13 @@ public class RedisComponent {
         return count == null ? 1 : count;
 
     }
+
+    //减少视频在线观看人数
+    public void decrVideoPlayOnline(String key) {
+        redisUtils.decrement(key);
+    }
+
+    public void updateTokenInfo(TokenUserInfoDto tokenUserInfoDto) {
+        redisUtils.setex(Constants.REDIS_KEY_TOKEN_WEB + tokenUserInfoDto.getToken(), tokenUserInfoDto, Constants.REDIS_KEY_EXPIRE_ONE_DAY * 7);
+    }
 }

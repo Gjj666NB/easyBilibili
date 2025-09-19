@@ -618,7 +618,10 @@
 	<!-- 根据UserId修改-->
 	<update id="updateByUserId" parameterType="com.easylive.entity.po.UserInfo">
 		 UPDATE user_info
- 		 <set> 
+ 		 <set>
+			 <if test="bean.avatar != null">
+				 avatar = #{bean.avatar},
+			 </if>
 			<if test="bean.nickName != null">
 				 nick_name = #{bean.nickName},
 			</if>
@@ -818,5 +821,6 @@
 	<select id="selectByNickName" resultMap="base_result_map" >
 		select <include refid="base_column_list" /> from user_info u where nick_name=#{nickName}
 	</select>
+
 
 </mapper>

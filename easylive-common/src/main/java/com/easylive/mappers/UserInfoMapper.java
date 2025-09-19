@@ -1,5 +1,6 @@
 package com.easylive.mappers;
 
+import com.easylive.entity.dto.CountInfoDto;
 import org.apache.ibatis.annotations.Param;
 
 /**
@@ -62,4 +63,6 @@ public interface UserInfoMapper<T,P> extends BaseMapper<T,P> {
 
 
 	Integer updateCoinCount(@Param("userId") String userId, @Param("changeCount") Integer changeCount);
+
+
 }

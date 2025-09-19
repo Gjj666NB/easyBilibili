@@ -2,17 +2,14 @@ package com.easylive.web.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import com.easylive.constants.Constants;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.query.VideoDanmuQuery;
 import com.easylive.entity.po.VideoDanmu;
 import com.easylive.entity.vo.ResponseVO;
-import com.easylive.mappers.VideoInfoMapper;
 import com.easylive.service.VideoDanmuService;
 import com.easylive.service.VideoInfoService;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

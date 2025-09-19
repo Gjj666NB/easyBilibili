@@ -858,4 +858,12 @@
 		from video_info v where v.video_id = #{videoId}
 	</select>
 
+
+    <select id="selectSumCountInfo" resultType="com.easylive.entity.dto.CountInfoDto">
+		select
+		sum(play_count) as playCount,
+		sum(like_count) as likeCount
+		from video_info v where v.user_id = #{userId}
+	</select>
+
 </mapper>

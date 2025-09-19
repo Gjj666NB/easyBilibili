@@ -23,10 +23,7 @@ import com.easylive.service.UserActionService;
 import com.easylive.service.VideoCommentService;
 import com.easylive.service.VideoInfoService;
 import com.easylive.web.annotation.GlobalInterceptor;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;

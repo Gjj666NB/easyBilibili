@@ -3,15 +3,12 @@ package com.easylive.web.controller;
 import com.easylive.component.RedisComponent;
 import com.easylive.constants.Constants;
 import com.easylive.entity.dto.TokenUserInfoDto;
+import com.easylive.entity.dto.UserCountInfoDto;
 import com.easylive.entity.vo.ResponseVO;
 import com.easylive.exception.BusinessException;
-import com.easylive.redis.RedisConfig;
-import com.easylive.redis.RedisUtils;
 import com.easylive.service.UserInfoService;
 import com.easylive.utils.StringTools;
 import com.wf.captcha.ArithmeticCaptcha;
-import org.apache.http.HttpRequest;
-import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -122,4 +119,13 @@ public class AccountController  extends ABaseController{
         cleanCookie(response);
         return getSuccessResponseVO(null);
     }
+
+
+    @RequestMapping("/getCountInfo")
+    public ResponseVO getCountInfo() {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfo();
+        UserCountInfoDto userCountInfoDto = userInfoService.getCountInfo(tokenUserInfoDto.getUserId());
+        return getSuccessResponseVO(userCountInfoDto);
+    }
+
 }
