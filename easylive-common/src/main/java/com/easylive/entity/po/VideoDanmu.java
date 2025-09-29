@@ -63,6 +63,45 @@ public class VideoDanmu implements Serializable {
 	 */
 	private Integer time;
 
+	private String videoCover;
+
+	private String avatar;
+
+	private String nickName;
+
+	private String videoName;
+
+	public String getVideoCover() {
+		return videoCover;
+	}
+
+	public void setVideoCover(String videoCover) {
+		this.videoCover = videoCover;
+	}
+
+	public String getAvatar() {
+		return avatar;
+	}
+
+	public void setAvatar(String avatar) {
+		this.avatar = avatar;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
+	}
+
+	public String getVideoName() {
+		return videoName;
+	}
+
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
 
 	public void setDanmuId(Integer danmuId){
 		this.danmuId = danmuId;

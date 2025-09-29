@@ -1,29 +1,68 @@
 package com.easylive.service.impl;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 import javax.annotation.Resource;
 
+import com.easylive.component.RedisComponent;
+import com.easylive.config.AppConfig;
+import com.easylive.constants.Constants;
+import com.easylive.entity.dto.SysSettingDto;
+import com.easylive.entity.po.*;
+import com.easylive.entity.query.*;
+import com.easylive.enums.ResponseEnum;
+import com.easylive.exception.BusinessException;
+import com.easylive.mappers.*;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.stereotype.Service;
 
 import com.easylive.enums.PageSize;
-import com.easylive.entity.query.VideoInfoQuery;
-import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.vo.PaginationResultVO;
-import com.easylive.entity.query.SimplePage;
-import com.easylive.mappers.VideoInfoMapper;
 import com.easylive.service.VideoInfoService;
 import com.easylive.utils.StringTools;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
  * 视频信息 业务接口实现
  */
 @Service("videoInfoService")
+@Slf4j
 public class VideoInfoServiceImpl implements VideoInfoService {
+
+	private static ExecutorService executorService = Executors.newFixedThreadPool(10);
+
+	@Resource
+	private AppConfig appConfig;
 
 	@Resource
 	private VideoInfoMapper<VideoInfo, VideoInfoQuery> videoInfoMapper;
+
+	@Resource
+	private VideoInfoPostMapper<VideoInfoPost, VideoInfoPostQuery> videoInfoPostMapper;
+
+	@Resource
+	private VideoInfoFilePostMapper<VideoInfoFilePost, VideoInfoFilePostQuery> videoInfoFilePostMapper;
+
+	@Resource
+	private VideoInfoFileMapper<VideoInfoFile, VideoInfoFileQuery> videoInfoFileMapper;
+
+	@Resource
+	private VideoCommentMapper<VideoComment, VideoCommentQuery> videoCommentMapper;
+
+	@Resource
+	private VideoDanmuMapper<VideoDanmu, VideoDanmuQuery> videoDanmuMapper;
+
+	@Resource
+	private UserInfoMapper<UserInfo, UserInfoQuery> userInfoMapper;
+
+	@Resource
+	private RedisComponent redisComponent;
 
 	/**
 	 * 根据条件查询列表
@@ -127,4 +166,76 @@ public class VideoInfoServiceImpl implements VideoInfoService {
 	public Integer deleteVideoInfoByVideoId(String videoId) {
 		return this.videoInfoMapper.deleteByVideoId(videoId);
 	}
+
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public void updateVideoInteraction(String videoId, String interaction, String userId) {
+		VideoInfo videoInfo = new VideoInfo();
+		videoInfo.setInteraction(interaction);
+		VideoInfoQuery videoInfoQuery = new VideoInfoQuery();
+		videoInfoQuery.setUserId(userId);
+		videoInfoQuery.setVideoId(videoId);
+		videoInfoMapper.updateByParam(videoInfo, videoInfoQuery);
+		VideoInfoPost videoInfoPost = new VideoInfoPost();
+		videoInfoPost.setInteraction(interaction);
+		VideoInfoPostQuery videoInfoPostQuery = new VideoInfoPostQuery();
+		videoInfoPostQuery.setUserId(userId);
+		videoInfoPostQuery.setVideoId(videoId);
+		videoInfoPostMapper.updateByParam(videoInfoPost, videoInfoPostQuery);
+	}
+
+
+
+	@Transactional(rollbackFor = Exception.class)
+	@Override
+	public void delVideo(String videoId, String userId) {
+		VideoInfoPost dbInfo = videoInfoPostMapper.selectByVideoId(videoId);
+		if (dbInfo == null || userId != null && !dbInfo.getUserId().equals(userId)){
+			throw new BusinessException(ResponseEnum.CODE_404);
+		}
+		//删除视频信息
+		videoInfoMapper.deleteByVideoId(videoId);
+		//删除视频审核信息
+		videoInfoPostMapper.deleteByVideoId(videoId);
+
+		SysSettingDto sysSetting = redisComponent.getSysSetting();
+		userInfoMapper.updateCoinCount(userId,-sysSetting.getPostVideoCoinCount());
+		//删除es中的数据
+
+		//执行异步操作 删除所有相关联的表
+		executorService.execute(()->{
+			VideoInfoFileQuery videoInfoFileQuery = new VideoInfoFileQuery();
+			videoInfoFileQuery.setVideoId(videoId);
+
+			//删除文件夹
+			List<VideoInfoFile> videoInfoFiles = videoInfoFileMapper.selectList(videoInfoFileQuery);
+			for (VideoInfoFile videoInfoFile : videoInfoFiles){
+                try {
+                    FileUtils.deleteDirectory(new File(appConfig.getProjectFolder() + Constants.FILE_FOLDER + videoInfoFile.getFilePath()));
+                } catch (IOException e) {
+					log.error("删除文件夹失败", e);
+                }
+            }
+
+			//删除文件信息
+			videoInfoFileMapper.deleteByParam(videoInfoFileQuery);
+			//删除审核文件信息
+			VideoInfoFilePostQuery videoInfoFilePostQuery = new VideoInfoFilePostQuery();
+			videoInfoFilePostQuery.setVideoId(videoId);
+			videoInfoFilePostMapper.deleteByParam(videoInfoFilePostQuery);
+			//删除弹幕信息
+			VideoDanmuQuery videoDanmuQuery = new VideoDanmuQuery();
+			videoDanmuQuery.setVideoId(videoId);
+			videoDanmuMapper.deleteByParam(videoDanmuQuery);
+			//删除评论信息
+			VideoCommentQuery videoCommentQuery = new VideoCommentQuery();
+			videoCommentQuery.setVideoId(videoId);
+			videoCommentMapper.deleteByParam(videoCommentQuery);
+		});
+
+	}
+
+
+
 }

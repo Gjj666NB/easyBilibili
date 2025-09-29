@@ -92,7 +92,16 @@
 
 	<!-- 查询集合-->
 	<select id="selectList" resultMap="base_result_map" >
-		 SELECT <include refid="base_column_list" /> FROM video_danmu v <include refid="query_condition" />
+		 SELECT <include refid="base_column_list" />
+		<if test="query.queryVideoInfo">
+			,u.nick_name AS nickName,u.avatar avatar,vi.video_name videoName, vi.video_cover videoCover
+		</if>
+		     FROM video_danmu v
+		<if test="query.queryVideoInfo">
+			inner join user_info u on u.user_id=v.user_id
+			left join video_info vi on vi.video_id=v.video_id
+		</if>
+		     <include refid="query_condition" />
 		 <if test="query.orderBy!=null">
 			 order by ${query.orderBy}
 		 </if>
@@ -390,6 +399,10 @@
 	<!-- 根据DanmuId删除-->
 	<delete id="deleteByDanmuId">
 		delete from video_danmu where danmu_id=#{danmuId}
+	</delete>
+
+	<delete id="deleteDanmuByDanmuId">
+		delete from video_danmu where danmu_id=#{danmuId} and user_Id=#{userId}
 	</delete>
 
 	<!-- 根据PrimaryKey获取对象-->

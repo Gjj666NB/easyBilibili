@@ -264,5 +264,28 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 		}
 	}
 
+    @Override
+	@Transactional(rollbackFor = Exception.class)
+    public void deleteComment(Integer commentId, String userId) {
+		VideoComment videoComment = videoCommentMapper.selectByCommentId(commentId);
+		if (videoComment == null) {
+			throw new BusinessException(ResponseEnum.CODE_600);
+		}
+		VideoInfo videoInfo = videoInfoMapper.selectByVideoId(videoComment.getVideoId());
+		if (videoInfo == null) {
+			throw new BusinessException(ResponseEnum.CODE_600);
+		}
+		if (userId != null && !videoInfo.getUserId().equals(userId) && !videoComment.getUserId().equals(userId)) {
+			throw new BusinessException(ResponseEnum.CODE_600);
+		}
+		videoCommentMapper.deleteByCommentId(commentId);
+		if (videoComment.getpCommentId() == 0) {//如果是一级评论，同时删除该评论下的子评论，并更新视频的评论数
+			videoInfoMapper.updateCountInfo(videoComment.getVideoId(), UserActionTypeEnum.VIDEO_COMMENT.getField(), -Constants.ONE);
+			VideoCommentQuery videoCommentQuery = new VideoCommentQuery();
+			videoCommentQuery.setpCommentId(commentId);
+			videoCommentMapper.deleteByParam(videoCommentQuery);
+		}
+    }
+
 
 }

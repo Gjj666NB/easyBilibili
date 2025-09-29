@@ -152,4 +152,9 @@ public class VideoDanmuServiceImpl implements VideoDanmuService {
 		videoInfoMapper.updateCountInfo(videoDanmu.getVideoId(), UserActionTypeEnum.VIDEO_DANMU.getField(),Constants.ONE);
 
 	}
+
+	@Override
+	public void deleteDanmuByDanmuId(Integer danmuId, String userId) {
+		videoDanmuMapper.deleteDanmuByDanmuId(danmuId, userId);
+	}
 }

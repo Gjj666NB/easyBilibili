@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import javax.annotation.Resource;
 
+import com.easylive.component.EsSearchComponent;
 import com.easylive.component.RedisComponent;
 import com.easylive.config.AppConfig;
 import com.easylive.constants.Constants;
@@ -68,6 +69,9 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService {
 
 	@Resource
 	private VideoInfoFileMapper<VideoInfoFile, VideoInfoFileQuery> videoInfoFileMapper;
+
+	@Resource
+	private EsSearchComponent esSearchComponent;
 
 	/**
 	 * 根据条件查询列表
@@ -412,6 +416,7 @@ public class VideoInfoPostServiceImpl implements VideoInfoPostService {
 			}
 		}
 		redisComponent.cleanDelQueue(videoId);
+		esSearchComponent.saveDoc(videoInfo);
 	}
 
 

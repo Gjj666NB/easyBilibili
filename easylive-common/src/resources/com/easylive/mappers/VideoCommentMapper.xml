@@ -119,9 +119,17 @@
 	<select id="selectList" resultMap="base_result_map">
 		select
 		<include refid="base_column_list"/>
-
+		<if test="query.queryVideoInfo">
+			,vi.video_name videoName, vi.video_cover videoCover,
+			u.nick_name nickName, u.avatar avatar,u2.nick_name
+			replyNickname
+		</if>
 		from video_comment v
-
+		<if test="query.queryVideoInfo">
+			inner join video_info vi on v.video_id = vi.video_id
+			left join user_info u on v.user_id = u.user_id
+			left join user_info u2 on v.reply_user_id = u2.user_id
+		</if>
 		<include refid="query_condition"/>
 		<if test="query.orderBy != null">
 			order by ${query.orderBy}
@@ -156,7 +164,9 @@
 	<!--查询数量-->
 	<select id="selectCount" resultType="java.lang.Integer">
 		select count(1) from video_comment v
-
+		<if test="query.queryVideoInfo">
+			inner join video_info vi on v.video_id = vi.video_id
+		</if>
 		<include refid="query_condition"/>
 	</select>
 

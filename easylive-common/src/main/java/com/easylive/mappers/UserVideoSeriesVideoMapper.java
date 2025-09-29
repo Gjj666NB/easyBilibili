@@ -25,4 +25,5 @@ public interface UserVideoSeriesVideoMapper<T,P> extends BaseMapper<T,P> {
 	 T selectBySeriesIdAndVideoId(@Param("seriesId") Integer seriesId,@Param("videoId") String videoId);
 
 
+    Integer selectMaxSort(Integer seriesId);
 }

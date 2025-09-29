@@ -40,10 +40,8 @@ public class interactConrtoller  extends ABaseController{
     /**
      * 用户收藏列表
      * @param userId
-     * @param type
      * @param pageNo
      * @param videoName
-     * @param orderType
      * @return
      */
     @RequestMapping("ucenter/home/loadUserCollection")

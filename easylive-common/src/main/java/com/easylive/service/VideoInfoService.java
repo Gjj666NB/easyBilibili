@@ -5,6 +5,7 @@ import java.util.List;
 import com.easylive.entity.query.VideoInfoQuery;
 import com.easylive.entity.po.VideoInfo;
 import com.easylive.entity.vo.PaginationResultVO;
+import org.springframework.transaction.annotation.Transactional;
 
 
 /**
@@ -69,4 +70,9 @@ public interface VideoInfoService {
 	 */
 	Integer deleteVideoInfoByVideoId(String videoId);
 
+
+    void updateVideoInteraction(String videoId, String interaction, String userId);
+
+	@Transactional(rollbackFor = Exception.class)
+	void delVideo(String videoId, String userId);
 }

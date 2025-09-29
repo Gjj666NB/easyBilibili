@@ -3,12 +3,18 @@ package com.easylive.web.controller;
 import com.easylive.entity.dto.TokenUserInfoDto;
 import com.easylive.entity.po.VideoInfoFilePost;
 import com.easylive.entity.po.VideoInfoPost;
+import com.easylive.entity.query.VideoInfoFilePostQuery;
 import com.easylive.entity.query.VideoInfoPostQuery;
 import com.easylive.entity.vo.PaginationResultVO;
 import com.easylive.entity.vo.ResponseVO;
+import com.easylive.entity.vo.VideoPostEditInfoVO;
 import com.easylive.entity.vo.VideoStatusCountInfoVO;
+import com.easylive.enums.ResponseEnum;
 import com.easylive.enums.VideoStatusEnum;
+import com.easylive.exception.BusinessException;
+import com.easylive.service.VideoInfoFilePostService;
 import com.easylive.service.VideoInfoPostService;
+import com.easylive.service.VideoInfoService;
 import com.easylive.utils.JsonUtils;
 import com.easylive.web.annotation.GlobalInterceptor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +38,11 @@ public class UcenterVideoPostController extends  ABaseController{
     @Resource
     private VideoInfoPostService videoInfoPostService;
 
+    @Resource
+    private VideoInfoService videoInfoService;
 
+    @Resource
+    private VideoInfoFilePostService videoInfoFilePostService;
 
     //发布视频
     @RequestMapping("/postVideo")
@@ -121,12 +131,50 @@ public class UcenterVideoPostController extends  ABaseController{
         return getSuccessResponseVO(videoStatusCountInfoVo);
     }
 
-    
-
 
     @RequestMapping("/delUploadVideo ")
     public ResponseVO delUploadVideo(@NotEmpty String videoId) {
         TokenUserInfoDto tokenUserInfoDto = getTokenUserInfo();
         return getSuccessResponseVO(videoInfoPostService.deleteVideoInfoPostByVideoId(videoId));
     }
+
+
+    @RequestMapping("/getVideoInfoByVideoId")
+    @GlobalInterceptor(checkLogin = true)
+    public ResponseVO getVideoInfoByVideoId(@NotEmpty String videoId) {
+        TokenUserInfoDto tokenUserInfo = getTokenUserInfo();
+        VideoInfoPost videoInfoPost = videoInfoPostService.getVideoInfoPostByVideoId(videoId);
+        if (videoInfoPost == null || !videoInfoPost.getUserId().equals(tokenUserInfo.getUserId())) {
+            throw new BusinessException(ResponseEnum.CODE_404);
+        }
+        VideoInfoFilePostQuery videoInfoFilePostQuery = new VideoInfoFilePostQuery();
+        videoInfoFilePostQuery.setVideoId(videoId);
+        videoInfoFilePostQuery.setOrderBy("v.file_index asc");
+        List<VideoInfoFilePost> videoInfoFilePostList = videoInfoFilePostService.findListByParam(videoInfoFilePostQuery);
+
+        VideoPostEditInfoVO videoPostEditInfoVO = new VideoPostEditInfoVO();
+        videoPostEditInfoVO.setVideoInfo(videoInfoPost);
+        videoPostEditInfoVO.setVideoInfoFileList(videoInfoFilePostList);
+        return getSuccessResponseVO(videoPostEditInfoVO);
+    }
+
+    @RequestMapping("/saveVideoInteraction")
+    @GlobalInterceptor(checkLogin = true)
+    public ResponseVO saveVideoInteraction(@NotEmpty String videoId, String interaction) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfo();
+        videoInfoService.updateVideoInteraction(videoId, interaction, tokenUserInfoDto.getUserId());
+        return getSuccessResponseVO(null);
+    }
+
+    @RequestMapping("/delVideo")
+    @GlobalInterceptor(checkLogin = true)
+    public ResponseVO delVideo(@NotEmpty String videoId) {
+        TokenUserInfoDto tokenUserInfoDto = getTokenUserInfo();
+        videoInfoService.delVideo(videoId, tokenUserInfoDto.getUserId());
+        return getSuccessResponseVO(null);
+    }
+
+
+
 }
+

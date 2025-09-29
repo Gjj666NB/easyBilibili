@@ -6,6 +6,9 @@ import com.easylive.entity.query.UserVideoSeriesQuery;
 import com.easylive.entity.po.UserVideoSeries;
 import com.easylive.entity.vo.PaginationResultVO;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
 
 /**
  * 用户视频顺序列表档 业务接口
@@ -69,4 +72,15 @@ public interface UserVideoSeriesService {
 	 */
 	Integer deleteUserVideoSeriesBySeriesId(Integer seriesId);
 
+    void saveUserVideoSeries(UserVideoSeries userVideoSeries, String videoIds);
+
+	List<UserVideoSeries> getUserAllVideoSeries(String userId);
+
+	void saveVideo2UserVideoSeries(String userId,  String videoIds,  Integer seriesId);
+
+	void delSeriesVideo(String userId,  String videoId,  Integer seriesId);
+
+	List<UserVideoSeries> findListWithVideo(UserVideoSeriesQuery userVideoSeriesQuery);
+
+    void delSeries(String userId,  Integer seriesId);
 }

@@ -78,4 +78,6 @@ public interface VideoCommentService {
 	void cancelTop( Integer commentId, String userId);
 
     void delComment( Integer commentId, String userId);
+
+    void deleteComment( Integer commentId, String userId);
 }

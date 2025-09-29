@@ -100,7 +100,8 @@
 
 	<!-- 查询集合-->
 	<select id="selectList" resultMap="base_result_map" >
-		 SELECT <include refid="base_column_list" /> FROM video_info_file_post v <include refid="query_condition" />
+		 SELECT <include refid="base_column_list" />
+		     FROM video_info_file_post v <include refid="query_condition" />
 		 <if test="query.orderBy!=null">
 			 order by ${query.orderBy}
 		 </if>

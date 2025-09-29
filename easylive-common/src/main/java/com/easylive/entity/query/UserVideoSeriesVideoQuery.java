@@ -1,6 +1,7 @@
 package com.easylive.entity.query;
 
 
+import lombok.Data;
 
 /**
  * 参数
@@ -27,11 +28,22 @@ public class UserVideoSeriesVideoQuery extends BaseParam {
 
 	private String userIdFuzzy;
 
+
+
 	/**
 	 * 排序
 	 */
 	private Integer sort;
 
+	private Boolean queryVideoInfo;
+
+	public Boolean getQueryVideoInfo() {
+		return queryVideoInfo;
+	}
+
+	public void setQueryVideoInfo(Boolean queryVideoInfo) {
+		this.queryVideoInfo = queryVideoInfo;
+	}
 
 	public void setSeriesId(Integer seriesId){
 		this.seriesId = seriesId;

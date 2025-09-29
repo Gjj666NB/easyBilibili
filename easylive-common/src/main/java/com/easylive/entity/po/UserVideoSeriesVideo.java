@@ -1,6 +1,8 @@
 package com.easylive.entity.po;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
+
 import java.io.Serializable;
 
 
@@ -29,6 +31,46 @@ public class UserVideoSeriesVideo implements Serializable {
 	 * 排序
 	 */
 	private Integer sort;
+
+	private String videoCover;
+
+	private String videoName;
+
+	private Integer playCount;
+
+	private Data createTime;
+
+	public String getVideoCover() {
+		return videoCover;
+	}
+
+	public void setVideoCover(String videoCover) {
+		this.videoCover = videoCover;
+	}
+
+	public String getVideoName() {
+		return videoName;
+	}
+
+	public void setVideoName(String videoName) {
+		this.videoName = videoName;
+	}
+
+	public Integer getPlayCount() {
+		return playCount;
+	}
+
+	public void setPlayCount(Integer playCount) {
+		this.playCount = playCount;
+	}
+
+	public Data getCreateTime() {
+		return createTime;
+	}
+
+	public void setCreateTime(Data createTime) {
+		this.createTime = createTime;
+	}
 
 
 	public void setSeriesId(Integer seriesId){
